@@ -93,7 +93,7 @@ task.spawn(function()
 	for _, Connection in next, OrionLib.Connections do
 		Connection:Disconnect()
 	end
-end).
+end)
 
 local function MakeDraggable(DragPoint, Main)
 	pcall(function()
