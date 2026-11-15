@@ -50,7 +50,7 @@ if syn then
 	syn.protect_gui(Orion)
 	Orion.Parent = game.CoreGui
 else
-	Orion.Parent = gethui() or game.CoreGui
+	Orion.Parent = (gethui and gethui()) or game.CoreGui
 end
 
 if gethui then
@@ -226,7 +226,7 @@ local function LoadCfg(Config)
 			warn("Orion Library Config Loader - Could not find ", a ,b)
 		end
 	end)
-end.
+end
 
 local function SaveCfg(Name)
 	local Data = {}
@@ -1235,7 +1235,7 @@ function OrionLib:MakeWindow(WindowConfig)
 				BindConfig.Flag = BindConfig.Flag or nil
 				BindConfig.Save = BindConfig.Save or false
 
-				local Bind = {Value, Binding = false, Type = "Bind", Save = BindConfig.Save}
+				local Bind = {Value = nil, Binding = false, Type = "Bind", Save = BindConfig.Save}
 				local Holding = false
 
 				local Click = SetProps(MakeElement("Button"), {
